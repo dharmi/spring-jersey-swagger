@@ -1,0 +1,16 @@
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+    <appender name="CA" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n"/>
+        </layout>
+    </appender>
+
+    <root>
+    <!--Notice this disables all logging-->
+        <priority value="off"/>
+        <appender-ref ref="CA"/>
+    </root>
+
+</log4j:configuration>

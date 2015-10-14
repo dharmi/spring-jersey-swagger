@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<context:component-scan base-package="org.samples.swaggerjava" />
+
+	<!-- Swagger API listing resource -->
+	<bean id="swaggerResourceJSON" class="com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON" />
+
+	<!-- Swagger providers -->
+
+	<bean id="resourceListingProvider"
+		class="com.wordnik.swagger.jaxrs.listing.ResourceListingProvider"
+		scope="singleton" />
+	<bean id="apiDeclarationProvider"
+		class="com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider"
+		scope="singleton" />
+
+	<context:component-scan base-package="org.samples.swaggerjava" />
+	<tx:annotation-driven />
+
+	<!-- Application Message Bundle -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
+	<!-- this scans the classes for resources -->
+	<bean id="swaggerConfig" class="com.wordnik.swagger.jaxrs.config.BeanConfig">
+		<property name="resourcePackage" value="org.samples.swaggerjava" />
+		<property name="version" value="1.0.1" />
+		<property name="basePath" value="http://localhost:8080/api" /> 
+		<property name="title" value="REST API" />
+		<property name="scan" value="true" />
+	</bean>
+
+	<task:annotation-driven />
+
+
+</beans>
