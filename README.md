@@ -2,7 +2,7 @@
 Spring + Jersey + Swagger sample
 
 
-# Clean the package
+# Create the war.
 
 mvn clean package
 
