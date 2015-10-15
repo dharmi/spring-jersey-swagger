@@ -2,7 +2,7 @@
 Spring + Jersey + Swagger sample
 
 
-# Create the war.
+# create war file.
 
 mvn clean package
 
@@ -10,6 +10,6 @@ mvn clean package
 
 java -jar target/dependency/webapp-runner.jar target/spring-jersey-swagger.war
 
-# View swagger dashboard
+# view swagger-ui dashboard
 
 http://localhost:8080/
