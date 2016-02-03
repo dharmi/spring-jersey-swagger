@@ -328,6 +328,19 @@
 				</executions>
 			</plugin>
 
+			<plugin>
+				<groupId>net.sf.debian-maven</groupId>
+				<artifactId>debian-maven-plugin</artifactId>
+				<version>1.0.6</version>
+				<configuration>
+					<!--
+                    <packageName>my-package</packageName>
+                    <packageVersion>1.0.0</packageVersion>
+                    ...
+                    -->
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 	<reporting>
